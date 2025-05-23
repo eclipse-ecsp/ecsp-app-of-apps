@@ -20,4 +20,6 @@ applications:
   device-auth:
     enabled: true
   device-message:
-    enabled: true  
+    enabled: true
+  ro:
+    enabled: true
