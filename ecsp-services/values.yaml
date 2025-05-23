@@ -19,5 +19,13 @@ applications:
     enabled: true
   device-auth:
     enabled: true
+  deviceinfoquery:
+    enabled: true
+  vehicle-profile:
+    enabled: true
   device-message:
+    enabled: true
+  device-shadow:
+    enabled: true  
+  ro:
     enabled: true  
