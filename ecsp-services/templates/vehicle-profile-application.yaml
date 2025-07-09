@@ -1,0 +1,25 @@
+{{- if (index .Values.applications "vehicle-profile").enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: oss-vehicle-profile
+  namespace: {{ .Values.argocd.namespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+spec:
+  project: {{ .Values.argocd.project }}
+  destination: {{ toYaml .Values.argocd.destination | nindent 4 }}
+  syncPolicy: {{ toYaml .Values.argocd.syncPolicy | nindent 4 }}
+
+  source:
+    path: {{ .Values.app.definitionPath }}/charts/vehicle-profile
+    repoURL: {{ .Values.argocd.repoURL }}
+    targetRevision: {{ .Values.argocd.targetRevision }}
+
+    helm:
+      ignoreMissingValueFiles: true
+      values: |
+        {{- include "app-of-apps.appValues" (dict "defaultValues" .Values.defaultAppValues.vehicleProfile "overrides" .Values.vehicleProfileOverrides "context" $) | nindent 8 }}
+{{- end }}
