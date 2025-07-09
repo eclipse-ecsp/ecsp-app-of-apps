@@ -31,4 +31,4 @@ applications:
   redis:
     enabled: true
   zk:
-    enabled: false                
+    enabled: false            
