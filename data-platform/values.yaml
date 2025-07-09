@@ -16,7 +16,7 @@ argocd:
 
 
 applications:
-  hivemq:
+  hivemq-extension-cluster:
     enabled: true
   kafka:
     enabled: false

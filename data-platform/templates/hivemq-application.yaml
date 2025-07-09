@@ -1,8 +1,8 @@
-{{- if (index .Values.applications "hivemq-cluster").enabled }}
+{{- if (index .Values.applications "hivemq-extension-cluster").enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: oss-hivemq-cluster
+  name: hivemq-extension-cluster
   namespace: {{ .Values.argocd.namespace }}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -14,7 +14,7 @@ spec:
   syncPolicy: {{ toYaml .Values.argocd.syncPolicy | nindent 4 }}
 
   source:
-    path: {{ .Values.app.definitionPath }}/charts/hivemq-cluster
+    path: {{ .Values.app.definitionPath }}/charts/hivemq-extension-cluster
     repoURL: {{ .Values.argocd.repoURL }}
     targetRevision: {{ .Values.argocd.targetRevision }}
 
