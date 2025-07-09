@@ -17,7 +17,7 @@ argocd:
 
 applications:
   hivemq:
-    enabled: false
+    enabled: true
   kafka:
     enabled: false
   mongodb-sharded:
