@@ -28,4 +28,8 @@ applications:
   device-shadow:
     enabled: true  
   ro:
-    enabled: true  
+    enabled: true
+  notification-api:
+    enabled: true
+  notification-sp:
+    enabled: true
